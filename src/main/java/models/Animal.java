@@ -5,22 +5,35 @@ import java.util.Objects;
 public class Animal {
     private int id;
     private String name;
+    private String rangerName;
 
 
 
-    public Animal(String name){
+    public Animal(String name,String rangerName) {
        this.name=name;
+       this.rangerName=rangerName;
     }
 
     public String getName() {
+
         return name;
     }
 
     public int getId() {
+
         return id;
     }
 
+    public String getRangerName() {
+        return rangerName;
+    }
+
+    public void setRangerName(String rangerName) {
+        this.rangerName = rangerName;
+    }
+
     public void setId(int id) {
+
         this.id = id;
     }
 
@@ -34,12 +47,13 @@ public class Animal {
         if (o == null || getClass() != o.getClass()) return false;
         Animal animal = (Animal) o;
         return id == animal.id &&
-                Objects.equals(name, animal.name);
+                Objects.equals(name, animal.name) &&
+                Objects.equals(rangerName, animal.rangerName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name);
+        return Objects.hash(id, name, rangerName);
     }
 }
 

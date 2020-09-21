@@ -39,5 +39,24 @@ public class App {
             return new ModelAndView(model, "endangered-sightings.hbs");
         }, new HandlebarsTemplateEngine());
 
+
+        //add animal sighting
+        post("/new-sightings", (req, res) -> { //new
+            Map<String, Object> model = new HashMap<>();
+            String name = req.queryParams("name");
+            String rangerName = req.queryParams("rangerName");
+            Animal newAnimal = new Animal(name,rangerName);
+            animalDao.add(newAnimal);
+            res.redirect("/");
+            return null;
+        }, new HandlebarsTemplateEngine());
+
+        get("/new-sighting-success", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+//            List<Animal> allSightings = animalDao.getAll();
+//            model.put("animals", allSightings);
+            return new ModelAndView(model, "new-sighting-success.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }

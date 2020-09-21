@@ -16,4 +16,8 @@ public interface Sighting {
     void deleteById(int id);
     void clearAllSightings();
 
+    //update
+    void update(int id, String name, String rangerName);
+
+
 }

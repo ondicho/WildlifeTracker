@@ -15,7 +15,7 @@ public class Sql2oAnimalDao implements Sighting {
 
     @Override
     public void add(Animal animal) {
-        String sql = "INSERT INTO animals (name, id) VALUES (:name, :id)";
+        String sql = "INSERT INTO animals (id,name,rangerName) VALUES (:id, :name,:rangerName)";
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
                     .bind(animal)
@@ -43,5 +43,19 @@ public class Sql2oAnimalDao implements Sighting {
     @Override
     public void clearAllSightings() {
 
+    }
+
+    @Override
+    public void update(int id, String newName, String newRangerName) {
+        String sql = "UPDATE animals SET (id, name, rangerName) = (:id, :name, :rangerName) WHERE id=:id";   //raw sql
+        try(Connection con = sql2o.open()){
+            con.createQuery(sql)
+                    .addParameter("name", newName)
+                    .addParameter("categoryId", newRangerName)
+                    .addParameter("id", id)
+                    .executeUpdate();
+        } catch (Sql2oException ex) {
+            System.out.println(ex);
+        }
     }
 }
