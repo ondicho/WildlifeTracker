@@ -8,9 +8,8 @@ public class Animal {
 
 
 
-    public Animal(String name,int id){
+    public Animal(String name){
        this.name=name;
-       this.id=id;
     }
 
     public String getName() {
@@ -33,16 +32,14 @@ public class Animal {
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-
         Animal animal = (Animal) o;
-
-        if (id != animal.id) return false;
-        return Objects.equals(name, animal.name);
+        return id == animal.id &&
+                Objects.equals(name, animal.name);
     }
 
     @Override
     public int hashCode() {
-        return  Objects.hash(name);
+        return Objects.hash(id, name);
     }
 }
 

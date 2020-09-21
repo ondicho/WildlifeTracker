@@ -15,8 +15,8 @@ public class EndangeredAnimal extends Animal {
     public static final String MID_AGE_LEVEL="young";
     public static final String MIN_AGE_LEVEL="newborn";
 
-    public EndangeredAnimal(String name, int id,String health,String age) {
-        super(name, id);
+    public EndangeredAnimal(String name,String health,String age) {
+        super(name);
         this.health=health;
         this.age=age;
     }

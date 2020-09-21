@@ -1,8 +1,14 @@
 {{#partial "content"}}
 
-    <h1> WildLife Tracker</h1>
+    <h1>Recorded Sightings</h1>
 
-
+    {{#if animals}}
+        {{#each animals }}
+            <p></p>
+        {{/each}}
+    {{else}}
+        <p>No animals tracked</p>
+    {{/if}}
 {{/partial}}
 
 {{> layout.hbs}}
