@@ -24,5 +24,20 @@ public class App {
             model.put("animals", allSightings);
             return new ModelAndView(model, "index.hbs");
         }, new HandlebarsTemplateEngine());
+
+        get("/new-sightings", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+//            List<Animal> allSightings = animalDao.getAll();
+//            model.put("animals", allSightings);
+            return new ModelAndView(model, "new-sightings.hbs");
+        }, new HandlebarsTemplateEngine());
+
+        get("/endangered-sightings", (req, res) -> {
+            Map<String, Object> model = new HashMap<>();
+//            List<Animal> allSightings = animalDao.getAll();
+//            model.put("animals", allSightings);
+            return new ModelAndView(model, "endangered-sightings.hbs");
+        }, new HandlebarsTemplateEngine());
+
     }
 }

@@ -1,0 +1,18 @@
+{{#partial "content"}}
+    <h1>Record New Sighting</h1>
+    <form action="/new-sightings" method="post">
+        <p>If Animal sighted is an <strong>ENDANGERED SPECIES</strong> <a href="/endangered-sightings">add here</a></p>
+
+        <label for="name">Animal Name</label>
+        <input id="name" name="name" type="text" value="{{animal.name}}">
+
+        <label for="rangerName">Ranger Name</label>
+        <input id="rangerName" name="rangerName" type="text" value="{{animal.rangerName}}">
+
+        <button type="submit" class="btn btn-default">Add Sighting</button>
+
+    </form>
+
+{{/partial}}
+
+{{> layout.hbs}}

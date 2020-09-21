@@ -1,0 +1,23 @@
+{{#partial "content"}}
+    <h1>Record Endangered Sighting</h1>
+    <form action="/endangered-sightings" method="post">
+        <label for="name">Animal Name</label>
+        <input id="name" name="name" type="text" value="{{animal.name}}">
+
+        <label for="location">Location</label>
+        <input id="location" name="location" type="text" value="{{animal.location}}">
+
+        <label for="age">Age</label>
+        <input id="age" name="age" type="integer" value="{{animal.age}}">
+
+        <label for="rangerName">Ranger Name</label>
+        <input id="rangerName" name="rangerName" type="text" value="{{animal.rangerName}}">
+
+
+
+        <button type="submit" class="btn btn-default">Add Sighting</button>
+    </form>
+
+{{/partial}}
+
+{{> layout.hbs}}
