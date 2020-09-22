@@ -1,16 +1,16 @@
 package dao;
 
-import models.Animal;
+import models.EndangeredAnimal;
 
 import java.util.List;
 
 
-public interface Sighting {
+public interface endangeredSighting {
     //add animal
-    void add(Animal animal);
+    void add(EndangeredAnimal endangeredAnimal);
 
     //LIST
-    List<Animal> getAll();
+    List<EndangeredAnimal> getAll();
 
     //delete
     void deleteById(int id);

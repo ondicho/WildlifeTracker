@@ -2,16 +2,22 @@
     <h1>Record Endangered Sighting</h1>
     <form action="/endangered-sightings" method="post">
         <label for="name">Animal Name</label>
-        <input id="name" name="name" type="text" value="{{animal.name}}">
+        <input id="name" name="name" type="text" value="{{sightings.name}}">
 
-        <label for="location">Location</label>
-        <input id="location" name="location" type="text" value="{{animal.location}}">
 
         <label for="age">Age</label>
-        <input id="age" name="age" type="integer" value="{{animal.age}}">
+        <input id="age" name="age" type="text" value="{{sightings.age}}">
+
+
+        <label for="health">Health</label>
+        <input id="health" name="health" type="text" value="{{sightings.health}}">
+
+
+        <label for="location">Location</label>
+        <input id="location" name="location" type="text" value="{{sightings.location}}">
 
         <label for="rangerName">Ranger Name</label>
-        <input id="rangerName" name="rangerName" type="text" value="{{animal.rangerName}}">
+        <input id="rangerName" name="rangerName" type="text" value="{{sightings.rangerName}}">
 
 
 

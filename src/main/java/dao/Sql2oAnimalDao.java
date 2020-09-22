@@ -4,7 +4,7 @@ import models.Animal;
 import org.sql2o.*;
 import java.util.List;
 
-public class Sql2oAnimalDao implements Sighting {
+public class Sql2oAnimalDao implements animalSighting {
 //    private static Sql2oAnimalDao animalDao;
 //    private static Connection conn;
     private final Sql2o sql2o;
@@ -27,7 +27,7 @@ public class Sql2oAnimalDao implements Sighting {
         }
     }
 
-    @Override
+//    @Override
     public List<Animal> getAll() {
         try(Connection con = sql2o.open()){
             return con.createQuery("SELECT * FROM animals")

@@ -1,15 +1,33 @@
 {{#partial "content"}}
 
-    <h1>Recorded Sightings</h1>
 
-    {{#if animals}}
-        {{#each animals }}
-            <p>Animal Name : {{name}}</p>
-            <p>Ranger Name : {{rangerName}}</p>
-        {{/each}}
-    {{else}}
-        <p>No animals tracked</p>
-    {{/if}}
+    <div class="row">
+        <div class="col-md-6">
+            <h3>Animal Sightings</h3>
+            {{#if animals}}
+                {{#each animals }}
+                    <p>Animal Name : {{name}}</p>
+                    <p>Ranger Name : {{rangerName}}</p>
+                {{/each}}
+            {{else}}
+                <p>No animals tracked</p>
+            {{/if}}
+        </div>
+        <div class="col-md-6">
+            <h3>Endangered Species Sightings</h3>
+            {{#if sightings}}
+                {{#each sightings }}
+                    <p>Animal Name : {{name}}</p>
+                    <p>Animal Age : {{age}}</p>
+                    <p>Animal Health : {{health}}</p>
+                    <p>Location Spotted : {{location}}</p>
+                    <p>Ranger Name : {{rangerName}}</p>
+                {{/each}}
+            {{else}}
+                <p>No Endangered Species spotted</p>
+            {{/if}}
+        </div>
+    </div>
 {{/partial}}
 
 {{> layout.hbs}}
