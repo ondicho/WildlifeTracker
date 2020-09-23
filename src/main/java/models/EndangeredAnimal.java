@@ -2,11 +2,14 @@ package models;
 
 import java.util.Objects;
 
-public class EndangeredAnimal extends Animal {
+public class EndangeredAnimal{
 
+    private int id;
+    private String name;
     private String health;
     private String age;
     private String location;
+    private String rangerName;
 
 
     //constants
@@ -18,10 +21,11 @@ public class EndangeredAnimal extends Animal {
     public static final String MIN_AGE_LEVEL = "newborn";
 
     public EndangeredAnimal(String name, String age,String health,String location,String rangerName) {
-        super(name,rangerName);
+        this.name=name;
         this.age = age;
         this.health = health;
         this.location=location;
+        this.rangerName=rangerName;
 
     }
 
@@ -39,6 +43,14 @@ public class EndangeredAnimal extends Animal {
 
     public void setAge(String age) {
         this.age = age;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getLocation() {
@@ -73,20 +85,38 @@ public class EndangeredAnimal extends Animal {
         return MIN_AGE_LEVEL;
     }
 
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String getRangerName() {
+        return rangerName;
+    }
+
+    public void setRangerName(String rangerName) {
+        this.rangerName = rangerName;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
         EndangeredAnimal that = (EndangeredAnimal) o;
-        return Objects.equals(health, that.health) &&
+        return id == that.id &&
+                Objects.equals(name, that.name) &&
+                Objects.equals(health, that.health) &&
                 Objects.equals(age, that.age) &&
-                Objects.equals(location, that.location);
+                Objects.equals(location, that.location) &&
+                Objects.equals(rangerName, that.rangerName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(super.hashCode(), health, age, location);
+        return Objects.hash(id, name, health, age, location, rangerName);
     }
 }
 

@@ -15,10 +15,11 @@ public class Sql2oAnimalDao implements animalSighting {
 
     @Override
     public void add(Animal animal) {
-        String sql = "INSERT INTO animals (id,name,rangerName) VALUES (:id, :name,:rangerName)";
+        String sql = "INSERT INTO animals (name,rangerName) VALUES (:name,:rangerName);";
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
-                    .bind(animal)
+                    .addParameter("name",animal.getName())
+                    .addParameter("rangerName",animal.getRangerName())
                     .executeUpdate() //run it all
                     .getKey(); //int id is now the row number (row “key”) of db
             animal.setId(id); //update object to set id now from database

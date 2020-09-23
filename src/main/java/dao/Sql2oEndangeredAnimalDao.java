@@ -18,10 +18,14 @@ public class Sql2oEndangeredAnimalDao implements endangeredSighting {
 
     @Override
     public void add(EndangeredAnimal endangeredAnimal) {
-        String sql = "INSERT INTO sightings (id,name,age,health,location,rangerName) VALUES (:id, :name,:age, :health, :location, :rangerName)";
+        String sql = "INSERT INTO sightings (name,age,health,location,rangerName) VALUES (:name,:age, :health, :location, :rangerName);";
         try(Connection con = sql2o.open()){ //try to open a connection
             int id = (int) con.createQuery(sql, true) //make a new variable
-                    .bind(endangeredAnimal)
+                    .addParameter("name",endangeredAnimal.getName())
+                    .addParameter("name",endangeredAnimal.getAge())
+                    .addParameter("name",endangeredAnimal.getHealth())
+                    .addParameter("name",endangeredAnimal.getLocation())
+                    .addParameter("name",endangeredAnimal.getRangerName())
                     .executeUpdate() //run it all
                     .getKey(); //int id is now the row number (row “key”) of db
             endangeredAnimal.setId(id); //update object to set id now from database
