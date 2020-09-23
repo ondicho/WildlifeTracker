@@ -44,6 +44,6 @@ public class Sql2oAnimalDaoTest {
 
     }
     public Animal addNewSighting(){
-        return new Animal("zebra");
+        return new Animal("zebra","Sakuda");
     }
 }
