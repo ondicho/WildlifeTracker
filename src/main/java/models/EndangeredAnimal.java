@@ -1,5 +1,6 @@
 package models;
 
+import java.time.LocalDateTime;
 import java.util.Objects;
 
 public class EndangeredAnimal{
@@ -10,6 +11,7 @@ public class EndangeredAnimal{
     private String age;
     private String location;
     private String rangerName;
+    private LocalDateTime createdAt;
 
 
     //constants
@@ -26,6 +28,7 @@ public class EndangeredAnimal{
         this.health = health;
         this.location=location;
         this.rangerName=rangerName;
+        this.createdAt = LocalDateTime.now();
 
     }
 
@@ -99,6 +102,14 @@ public class EndangeredAnimal{
 
     public void setRangerName(String rangerName) {
         this.rangerName = rangerName;
+    }
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
     }
 
     @Override
